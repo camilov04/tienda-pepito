@@ -25,4 +25,4 @@ class Cliente:
 
     def PasarAcadena(self):
         print("")
-        return print("--Nombre--",self.nombre,"--Número de teléfono--",self.numero_telefono,"--valor de la deuda--",self.cuenta)
+        return print("--Nombre:",self.nombre,"--Número de teléfono:",self.numero_telefono,"--valor de la deuda:",self.cuenta)
