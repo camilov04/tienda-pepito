@@ -74,6 +74,7 @@ def buscar():
 
 
 def modificar():
+    #Funcion para modificar los clientes en el sistema
     print()
     print("***************Se habilito la opcion de modificar datos del Cliente*************")
     print("Lista de los clientes")
@@ -124,6 +125,7 @@ def eliminar():
         
 
 def cuenta():
+    #funciones para modificar las cuentas de los clientes sumar o restar a la deuda 
     print()
     print("***************Se habilito la opcion de gestionar cuentas*************")
     print("Lista de los clientes")
@@ -164,12 +166,13 @@ def cuenta():
         
 
 def menu():
-
+    #funcion de menu para hecer el llamado a todas las funciones
     contador = "si"
     while contador == "si":
-        print("*********")
-        print("**     Menu      **")
-        print("*********")
+        print("|************************|")
+        print("|**|     Bienvenido   |**|")
+        print("|**|        Menu      |**|")
+        print("|************************|")
         print()
         print("Si la cueta aparece con numeros negatios es el saldo que tiene el cliente a favor ")
         print("Si el monto aperece con numeros positivos es el saldo ha pagar del cliente ")
