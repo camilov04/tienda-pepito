@@ -5,6 +5,7 @@ lista_Cliente=[]
 
 def crear_cliente():
     #funcion para crear un cliente en el sistema
+        global cliente_t
         print("""
          ------------------------------
         ******Menú crear cliente******
@@ -69,8 +70,33 @@ def buscar():
 
 
 def modificar():
-    pass
+    print()
+    print("***************se habilito la opcion de modificar*************")
+    print("Lista de los clientes")
+    for objeto in lista_Cliente:
+        objeto.PasarAcadena()
+    print()
+    celular=input("ingrese el numero telefonico del cliente que desea modificar: ")
+    print("")
+    longitud=len(lista_Cliente)-1
+    while longitud >=0:
+        if celular==lista_Cliente[longitud].numero_telefono:
+            nombreCliente=input("ingrese el nuevo nombre del Cliente")
+            
+            print("")
+            celular=input("ingrese nuevo numero telefonico: ")
+            
+            print("")
+            cuenta=lista_Cliente[longitud].cuenta
 
+            lista_Cliente[longitud].modificar(nombreCliente,celular,cuenta)
+            cliente_t.PasarAcadena()
+            
+            break
+        else:
+            print("El cliente no existe")
+        
+        
 def eliminar():
     #funcion para eliminar un cliente seleccionado
     print("")
@@ -87,4 +113,43 @@ def eliminar():
             break
         
 
-  
+def cuenta():
+    print()
+    print("***************se habilito la opcion de gestion de cuentas*************")
+    print("Lista de los clientes")
+    for objeto in lista_Cliente:
+        objeto.PasarAcadena()
+    print()
+    celular=input("ingrese el numero telefonico del cliente que desea gestionar la cuenta: ")
+    
+    longitud=len(lista_Cliente)-1
+    while longitud >=0:
+        if celular==lista_Cliente[longitud].numero_telefono:
+            des=int(input("la transaccion de la cuenta es un abono o es fiado  1=Abono * 2=Fiado"))
+            nombreCliente=lista_Cliente[longitud].nombre
+            cuenta=lista_Cliente[longitud].cuenta
+            telefono=lista_Cliente[longitud].numero_telefono
+            if des==1:
+                abono=float(input("De cuanto es el valor del abono: "))
+                abono1=abono*-1
+                cuenta=cuenta+abono1
+                lista_Cliente[longitud].modificar(nombreCliente,telefono,cuenta)
+                print("el nuevo valor de la cuenta es")
+                cliente_t.PasarAcadena()
+            elif des==2:
+                abono=float(input("de cuanto es el valor de lo fiado: "))
+                cuenta=cuenta+abono
+                lista_Cliente[longitud].modificar(nombreCliente,telefono,cuenta)
+                print("el nuevo valor de la cuenta es")
+                cliente_t.PasarAcadena()
+            else:
+                print("deccion no valida")
+        
+
+
+crear_cliente()
+listar()
+cuenta()
+listar()
+eliminar()
+listar()
