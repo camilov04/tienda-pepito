@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans&family=Open+Sans:wght@500&family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Clientes | Tienda</title>
+</head>
+<header class="header_ed_clientes">
+    <a href="./clientes.html">
+        <button>HOME</button>
+    </a>
+    <h1>TIENDA PEPITO</h1>
+</header>
+<body>
+    
+<main>
+<section class="login">
+    <div class="columns">
+        <div class="column is-one-third">
+            <h3 class="is-size-3">Agregar Cliente</h3>
+            <form action="{{url_for('guardar_cliente')}}" method="post">
+                <br>
+                <br>
+                <label class="nombreC" for="nombre">Nombre:</label>
+                <input required type="text" class="input" placeholder="Nombre" name="nombre" id="nombre">
+                <br>
+                <br>
+                <label class="apellidoC" for="apellido">Apellido</label>
+                <input required type="text" class="input" placeholder="Apellido" name="apellido" id="apellido">
+                <br>
+                <br>
+                <label class="telefonoC" for="telefono">Telefono</label>
+                <input required type="number" placeholder="Telefono"name="telefono"  id="telefono">
+                <br>
+                <br>
+                <button type="submit" class="button is-success mt-2">Guardar</button>
+                
+            </form>
+        </div>
+    </div>
+</section>
+</main>
+</body>

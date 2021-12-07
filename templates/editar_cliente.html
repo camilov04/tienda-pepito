@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans&family=Open+Sans:wght@500&family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Clientes | Tienda</title>
+</head>
+<header class="header_ed_clientes">
+    <a href="./clientes.html">
+        <button>HOME</button>
+    </a>
+    <h1>TIENDA PEPITO</h1>
+</header>
+<body>
+    <main>
+    
+<section class="login">
+            <h3 class="titulo">Editar Cliente</h3>
+            <br>
+            <form action="{{url_for('actualizar_cliente')}}" method="POST">
+
+                <input type="hidden" name="codigocliente" value="{{cliente[0]}}">
+                <label class="nombreC" for="nombre">Nombre:</label>
+                <input value="{{cliente[1]}}" required type="text" class="input" placeholder="Nombre" name="nombre" id="nombre">
+<br>
+<br>
+                <label class="apellidoC" for="apellido">Apellido</label>
+                <input value="{{cliente[2]}}" required type="text" class="input" placeholder="Apellido" name="apellido" id="apellido">
+                <br>
+                <br>
+                <label class="telefonoC" for="telefono">Telefono</label>
+                <input value="{{cliente[4]}}"required type="number" class="input" placeholder="Telefono" name="telefono" id="telefono">
+                <br>
+                <br>
+                <div class="check">
+                    
+                    <div class="checkbox">
+                        <input type="checkbox">
+                        <p>Fiar de nuevo</p>
+                    </div>
+
+                    <div class="checkbox">
+                        <input type="checkbox">
+                        <p>Abonar</p>
+                    </div>
+
+                    <div class="checkbox">
+                        <input type="checkbox">
+                        <p>Producto retirado</p>
+                    </div>
+                </div>
+                <button type="submit" class="button">Modificar</button>
+
+            </form>
+</section>
+</body>
+</main>

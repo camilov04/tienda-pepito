@@ -1,0 +1,86 @@
+/*login*/
+
+*{  
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url(../static/images/fondo1.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+header{
+    display: flex;
+    padding-top: 25px;
+    justify-content: center;
+    height: 90px;
+    box-shadow: 0px 10px 22px 10px rgba(0,0,0,0.75);
+    background-color: rgb(255, 247, 146);
+}
+
+
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.login{
+    box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.75);
+    padding: 20px;
+    margin-top: 120px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 320px;
+    width: 757px;
+    background-color: rgba(255, 248, 146, 0.842);
+    
+}
+
+.login input{
+    height: 31px;
+    width: 256px;
+}
+
+.login button{
+    height: 39px;
+    width: 156px;
+
+
+}
+
+/*fin login*/
+
+/*agregar cliente*/
+header button{
+    height: 39px;
+    width: 156px;
+
+}
+
+.header_ed_clientes{
+    display: flex;
+    justify-content: space-around;
+}
+
+.titulo{
+    text-align: center;
+}
+
+.check{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.checkbox{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
