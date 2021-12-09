@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <link rel="shortcut icon" href="../static/images/icono.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans&family=Open+Sans:wght@500&family=Orbitron&display=swap" rel="stylesheet">
@@ -19,13 +19,15 @@
             <h1>Iniciar Sesión</h1>
             <br>
             <br>
-            <p>Correo</p>
-            <input required name="correo" type="text" placeholder="Ingrese su correo. ">
-            <br>
-            <p>Contraseña</p>
-            <input required name="password" type="password" placeholder="Ingrese su contraseña. " >
-            <br>
-            <button>Iniciar Sesión</button>
+            <form action="{{url_for('login')}}" method="POST">
+                <p>Correo</p>
+                <input required name="correo" type="text" placeholder="Ingrese su correo. ">
+                <br>
+                <p>Contraseña</p>
+                <input required name="password" type="password" placeholder="Ingrese su contraseña. " >
+                <br>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
         </div>
     </main>
     
