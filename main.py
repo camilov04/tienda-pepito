@@ -11,6 +11,8 @@ def login():
     return render_template('login.html')
 
 
+
+
 # cliente
 
 
@@ -59,6 +61,7 @@ def actualizar_cliente():
         nombre, apellido, telefono, codigocliente)
     return redirect('/clientes')
 
+
 @app.route('/inicio_sesion', methods=['POST'])
 def inicio_sesion ():
     email = request.form["correo"]
@@ -71,6 +74,19 @@ def inicio_sesion ():
             return "Error dstos no corresponden"
     except Exception as error:
         return redirect ("login")
+
+'''
+@app.route('./buscar_cliente' , methods=['POST'])
+def Buscar ():
+    telefono = request.form["telefono"]
+    telefono = controlador_cliente.buscar_cliente(telefono)
+
+    if telefono == telefono[3]:
+        return redirect ("buscar_cliente")
+
+    else:
+        return "registro no encontrado"
+'''
 
 if __name__ == "__main__":
     app.run( port=5000, debug=True)

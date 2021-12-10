@@ -54,11 +54,20 @@ def inicio_sesion(email, password):
     conexion = obtener_conexion()
     administrador=None
     with conexion.cursor() as cursor:
-        cursor.execute('SELECT  login.correo as correo, login.password as password FROM tiendaPepito.login WHERE correo = %s', (email,) )
+        cursor.execute('SELECT  login.correo as correo, login.password as password FROM tiendaPepito.login WHERE correo = %s and password=%s', (email)(password) )
         administrador = cursor.fetchone()
     conexion.close()
     return administrador
 
+
+#buscar cliente
+def buscar_cliente (telefono):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute('SELECT cliente.codigocliente as codigocliente, cliente.nombre as nombre, cliente.apellido as apellido, cliente.telefono as telefono FROM tiendaPepito.cliente WHERE telefono =  %s',(telefono)  )
+        cliente = cursor.fetchall()
+        conexion.close()
+        return cliente
 
 
     
