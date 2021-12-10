@@ -1,11 +1,11 @@
 from bd import obtener_conexion
 
 
-def agregar_clientes(nombre, apellido,  telefono,):
+def agregar_clientes(nombre, apellido,  telefono,saldocuenta):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute('INSERT INTO cliente(cedula, nombre, apellido, fechanacimiento, telefono) VALUES (%s,%s,%s)',
-                       (nombre, apellido, telefono))
+        cursor.execute('INSERT INTO cliente(nombre, apellido, telefono, saldocuenta) VALUES (%s,%s,%s,%s)',
+                       (nombre, apellido, telefono, saldocuenta))
     conexion.commit()
     conexion.close()
 
@@ -14,7 +14,7 @@ def obtener_cliente():
     conexion = obtener_conexion()
     clientes = []
     with conexion.cursor() as cursor:
-        cursor.execute('SELECT cliente.codigocliente as codigocliente, cliente.nombre as nombre, cliente.apellido as apellido, cliente.telefono as telefono FROM tiendaPepito.cliente')
+        cursor.execute('SELECT cliente.codigocliente as codigocliente, cliente.nombre as nombre, cliente.apellido as apellido, cliente.telefono as telefono, cliente.saldocuenta as saldocuenta FROM tiendaPepito.cliente')
         clientes = cursor.fetchall()
         conexion.close()
         return clientes
@@ -50,24 +50,27 @@ def obtener_cliente_por_id(codigocliente):
     return clientes
 
 #Inicio sesion 
-def inicio_sesion(email, password):
+def inicio_sesion(email):
     conexion = obtener_conexion()
     administrador=None
     with conexion.cursor() as cursor:
-        cursor.execute('SELECT  login.correo as correo, login.password as password FROM tiendaPepito.login WHERE correo = %s and password=%s', (email)(password) )
+        cursor.execute('SELECT  login.correo as correo, login.password as password FROM tiendaPepito.login WHERE correo =%s', (email) )
         administrador = cursor.fetchone()
     conexion.close()
     return administrador
-
 
 #buscar cliente
 def buscar_cliente (telefono):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute('SELECT cliente.codigocliente as codigocliente, cliente.nombre as nombre, cliente.apellido as apellido, cliente.telefono as telefono FROM tiendaPepito.cliente WHERE telefono =  %s',(telefono)  )
+        cursor.execute('SELECT * FROM tiendaPepito.cliente WHERE telefono =  %s',(telefono)  )
         cliente = cursor.fetchall()
         conexion.close()
         return cliente
+
+
+
+
 
 
     

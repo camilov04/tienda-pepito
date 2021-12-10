@@ -36,7 +36,30 @@
                 <input required type="number" placeholder="Telefono"name="telefono"  id="telefono">
                 <br>
                 <br>
-                <button type="submit" class="button is-success mt-2">Guardar</button>
+                <label class="saldo" for="Cuenta">Cuenta</label>
+                <input required type="float" placeholder="Saldo Cuenta"name="saldo"  id="saldo">
+                <br>
+                <div class="check">
+                    
+                    <div class="checkbox" >
+                        <input type="radio" name="tipocuenta" id="fiar" value="1">
+                        <p>Fiar  producto</p>
+                    </div>
+
+                    <div class="checkbox">
+                        <input type="radio" name="tipocuenta" id="abonar" value="2">
+                        <p>Abonar</p>
+                    </div>
+
+                    <div class="checkbox">
+                        <input type="radio" name="tipocuenta" id="retirar" value="3">
+                        <p>Cuenta inicia en 0</p>
+                    </div><br>
+                    <button type="submit" class="button is-success mt-2">Guardar</button>
+                    <br>
+                </div>
+                
+               
                 
             </form>
         </div>

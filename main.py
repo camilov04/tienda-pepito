@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect
 import controlador_cliente
-
+lista_busqueda=[]
 app = Flask(__name__)
 
 
@@ -11,25 +11,26 @@ def login():
     return render_template('login.html')
 
 
-
-
-# cliente
-
-
-
-@app.route('/agregar_cliente')
+@app.route('/formulario_agregar_cliente')
 def formulario_agregar_cliente():
     return render_template('agregar_cliente.html')
-
 
 @app.route('/guardar_clientes', methods=['POST'])
 def guardar_cliente():
     nombre = request.form['nombre']
     apellido = request.form['apellido']
     telefono = request.form['telefono']
+    saldocuenta = request.form['saldo']
+    tipocuenta= request.form['tipocuenta']
+    if tipocuenta=='1':
+        saldocuenta=saldocuenta
+    elif tipocuenta=='2':
+        saldocuenta=saldocuenta*-1
+    elif tipocuenta=='3':
+        saldocuenta=saldocuenta*0
     controlador_cliente.agregar_clientes(
-        nombre, apellido, telefono)
-    return redirect('/home')
+        nombre, apellido, telefono,saldocuenta)
+    return redirect('/clientes')
 
 
 
@@ -42,7 +43,7 @@ def clientes():
 @app.route('/eliminar_cliente', methods=['POST'])
 def eliminar_cliente():
     controlador_cliente.eliminar_cliente(request.form['codigocliente'])
-    return redirect('/home')
+    return redirect('/clientes')
 
 
 @app.route('/formulario_editar_cliente/<int:codigocliente>')
@@ -65,28 +66,26 @@ def actualizar_cliente():
 @app.route('/inicio_sesion', methods=['POST'])
 def inicio_sesion ():
     email = request.form["correo"]
-    password = request.form["password"]
-    login=[]=controlador_cliente.inicio_sesion(email, password)
+    password= request.form["password"]
+    login=controlador_cliente.inicio_sesion(email)
     try:
-        if email == login[0] and password == login[1]:
+        if password == login[1]:
             return redirect ("clientes")
         else:
-            return "Error dstos no corresponden"
+            return redirect ("login")
     except Exception as error:
         return redirect ("login")
 
-'''
-@app.route('./buscar_cliente' , methods=['POST'])
+@app.route('/buscar_cliente' , methods=['POST'])
 def Buscar ():
     telefono = request.form["telefono"]
-    telefono = controlador_cliente.buscar_cliente(telefono)
+    clientes = controlador_cliente.buscar_cliente(telefono)
+    return render_template ('buscar.html',clientes=clientes)
 
-    if telefono == telefono[3]:
-        return redirect ("buscar_cliente")
+@app.route('/busqueda')
+def busqueda():
+    return render_template('buscar.html')
 
-    else:
-        return "registro no encontrado"
-'''
 
 if __name__ == "__main__":
     app.run( port=5000, debug=True)
