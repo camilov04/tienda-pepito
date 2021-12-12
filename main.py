@@ -20,14 +20,14 @@ def guardar_cliente():
     nombre = request.form['nombre']
     apellido = request.form['apellido']
     telefono = request.form['telefono']
-    saldocuenta = request.form['saldo']
+    saldocuenta = request.form['saldocuenta']
     tipocuenta= request.form['tipocuenta']
     if tipocuenta=='1':
         saldocuenta=saldocuenta
     elif tipocuenta=='2':
-        saldocuenta=saldocuenta*-1
+        saldocuenta=float(saldocuenta)-(float(saldocuenta)*2)
     elif tipocuenta=='3':
-        saldocuenta=saldocuenta*0
+        saldocuenta=float(saldocuenta)*(0)
     controlador_cliente.agregar_clientes(
         nombre, apellido, telefono,saldocuenta)
     return redirect('/clientes')
@@ -80,7 +80,7 @@ def inicio_sesion ():
 def Buscar ():
     telefono = request.form["telefono"]
     clientes = controlador_cliente.buscar_cliente(telefono)
-    return render_template ('buscar.html',clientes=clientes)
+    return render_template ('clientes.html',clientes=clientes)
 
 @app.route('/busqueda')
 def busqueda():
