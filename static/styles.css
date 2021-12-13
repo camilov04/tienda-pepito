@@ -17,9 +17,30 @@ header{
     display: flex;
     padding-top: 25px;
     justify-content: center;
+    align-items: center;
     height: 90px;
     box-shadow: 0px 10px 22px 10px rgba(0,0,0,0.75);
     background-color: rgb(255, 247, 146);
+}
+
+header img{
+    height: 90px;
+    margin-bottom: 24px;
+}
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: #212529;
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: #212529;
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: #212529;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    vertical-align: top;
+    border-color: black;
 }
 
 
@@ -50,10 +71,11 @@ main{
 
 .login button{
     height: 39px;
-    width: 156px;
-
+    width: 115px;
+    margin-right: 15px;
 
 }
+
 
 /*fin login*/
 
@@ -61,7 +83,9 @@ main{
 header button{
     height: 39px;
     width: 156px;
-
+    border-radius: 15px;
+    background-color: black;
+    color: white;
 }
 
 .header_ed_clientes{

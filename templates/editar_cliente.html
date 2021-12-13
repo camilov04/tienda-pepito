@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link rel="shortcut icon" href="../static/images/icono.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans&family=Open+Sans:wght@500&family=Orbitron&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/styles.css">
     <meta charset="UTF-8">
@@ -35,20 +36,24 @@
                 <input value="{{cliente[3]}}"required type="number" class="input" placeholder="Telefono" name="telefono" id="telefono">
                 <br>
                 <br>
+                <label class="saldo" for="Cuenta">Cuenta</label>
+                <input required type="number" placeholder="Saldo Cuenta"name="number"  id="number">
+                <br>
+                <br>
                 <div class="check">
                     
                     <div class="checkbox" >
-                        <input type="radio" id="1">
+                        <input type="radio" id="tipocuenta" name="tipocuenta" value="1">
                         <p>Fiar de nuevo</p>
                     </div>
 
                     <div class="checkbox">
-                        <input type="radio" id="2">
+                        <input type="radio" id="tipocuenta" name="tipocuenta" value="2">
                         <p>Abonar</p>
                     </div>
 
                     <div class="checkbox">
-                        <input type="radio" id="3">
+                        <input type="radio" id="tipocuenta" name="tipocuenta" value="3">
                         <p>Producto retirado</p>
                     </div>
                 </div>

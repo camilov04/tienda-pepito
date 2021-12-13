@@ -17,20 +17,24 @@ def formulario_agregar_cliente():
 
 @app.route('/guardar_clientes', methods=['POST'])
 def guardar_cliente():
-    nombre = request.form['nombre']
-    apellido = request.form['apellido']
-    telefono = request.form['telefono']
-    saldocuenta = request.form['saldocuenta']
-    tipocuenta= request.form['tipocuenta']
-    if tipocuenta=='1':
-        saldocuenta=saldocuenta
-    elif tipocuenta=='2':
-        saldocuenta=float(saldocuenta)-(float(saldocuenta)*2)
-    elif tipocuenta=='3':
-        saldocuenta=float(saldocuenta)*(0)
-    controlador_cliente.agregar_clientes(
-        nombre, apellido, telefono,saldocuenta)
-    return redirect('/clientes')
+    try:
+        nombre = request.form['nombre']
+        apellido = request.form['apellido']
+        telefono = request.form['telefono']
+        saldocuenta = request.form['number']
+        tipocuenta= request.form['tipocuenta']
+        if tipocuenta=='1':
+            saldocuenta=saldocuenta
+        elif tipocuenta=='2':
+            saldocuenta=float(saldocuenta)-(float(saldocuenta)*2)
+        elif tipocuenta=='3':
+            saldocuenta=float(saldocuenta)*(0)
+        controlador_cliente.agregar_clientes(
+            nombre, apellido, telefono,saldocuenta)
+        return redirect('/clientes')
+    except Exception:
+        return redirect ('/formulario_agregar_cliente')
+        
 
 
 
@@ -54,13 +58,29 @@ def editar_cliente(codigocliente):
 
 @app.route('/actualizar_cliente', methods=['POST'])
 def actualizar_cliente():
-    codigocliente = request.form['codigocliente']
-    nombre = request.form['nombre']
-    apellido = request.form['apellido']
-    telefono = request.form['telefono']
-    controlador_cliente.actualizar_cliente(
-        nombre, apellido, telefono, codigocliente)
-    return redirect('/clientes')
+    try:
+        codigocliente = request.form['codigocliente']
+        nombre = request.form['nombre']
+        apellido = request.form['apellido']
+        telefono = request.form['telefono']
+        global cuenta
+        cuenta = request.form['number']
+        tipocuenta= request.form['tipocuenta']
+        saldo=controlador_cliente.Gestionar_cuenta(codigocliente)
+        global saldo2,saldocuenta
+        for i in saldo:
+            saldo2=i
+        if tipocuenta=='1':
+            saldocuenta=float(saldo2)+(float(cuenta))
+        elif tipocuenta=='2':
+            saldocuenta=float(saldo2)-(float(cuenta))
+        elif tipocuenta=='3':
+            saldocuenta=float(saldo2)+(float(cuenta))
+        controlador_cliente.actualizar_cliente(
+            nombre, apellido, telefono, saldocuenta,codigocliente)
+        return redirect('/clientes')
+    except Exception:
+        return redirect ('/actualizar_cliente')
 
 
 @app.route('/inicio_sesion', methods=['POST'])
@@ -73,8 +93,8 @@ def inicio_sesion ():
             return redirect ("clientes")
         else:
             return redirect ("login")
-    except Exception as error:
-        return redirect ("login")
+    except Exception:
+        return redirect ("/")
 
 @app.route('/buscar_cliente' , methods=['POST'])
 def Buscar ():

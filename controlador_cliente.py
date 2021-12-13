@@ -29,11 +29,11 @@ def eliminar_cliente(codigocliente):
     conexion.close()
 
 
-def actualizar_cliente(nombre, apellido, telefono, codigoclinte):
+def actualizar_cliente(nombre, apellido, telefono, saldocuenta,codigoclinte):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute('UPDATE cliente SET nombre = %s, apellido =  %s, telefono = %s WHERE codigocliente = %s',
-                       (nombre, apellido, telefono, codigoclinte))
+        cursor.execute('UPDATE cliente SET nombre = %s, apellido =  %s, telefono = %s,  saldocuenta= %s WHERE codigocliente = %s',
+                       (nombre, apellido, telefono, saldocuenta,codigoclinte))
     conexion.commit()
     conexion.close()
 
@@ -42,9 +42,19 @@ def actualizar_cliente(nombre, apellido, telefono, codigoclinte):
 
 def obtener_cliente_por_id(codigocliente):
     conexion = obtener_conexion()
-    clientes = None
+    clientes =[]
     with conexion.cursor() as cursor:
         cursor.execute('SELECT cliente.codigocliente as codigocliente, cliente.nombre as nombre, cliente.apellido as apellido, cliente.telefono as telefono FROM tiendaPepito.cliente WHERE codigocliente = %s', (codigocliente,))
+        clientes = cursor.fetchone()
+    conexion.close()
+    return clientes
+
+#Gestionar cuenta
+def Gestionar_cuenta(codigocliente):
+    conexion = obtener_conexion()
+    clientes =[]
+    with conexion.cursor() as cursor:
+        cursor.execute('SELECT cliente.codigocliente as codigocliente, cliente.nombre as nombre, cliente.apellido as apellido, cliente.telefono as telefono, cliente.saldocuenta as saldocuenta FROM tiendaPepito.cliente WHERE codigocliente = %s', (codigocliente,))
         clientes = cursor.fetchone()
     conexion.close()
     return clientes

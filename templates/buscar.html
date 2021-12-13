@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" href="../static/images/icono.png" type="image/x-icon">
     <link rel="stylesheet" href="../static/styles.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,43 +24,7 @@
             </form>
 
         </div>
-        <div class="container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Telefono</th>
-                        <th>Estado Cuenta</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for cliente in Clientes %}
-                    <tr>
-
-                        <td>{{cliente[1]}}</td>
-                        <td>{{cliente[2]}}</td>
-                        <td>{{cliente[3]}}</td>
-                        <td>{{cliente[4]}}</td>
-
-                            
-                        </td>
-
-                        <td>
-                            <a href="{{url_for('editar_cliente', codigocliente=telefono[0])}}" >
-                                <button class="botons"> Editar</button>
-                            </a>
-                        </td>
-                        <td>
-                            <form action="{{('eliminar_cliente')}}" method="POST">
-                                <input type="hidden" name="codigocliente" value="{{telefono[0]}}">
-                                <button class="botons">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
-                    {% endfor %}
+        
     </section>
     </main>
 </body>
