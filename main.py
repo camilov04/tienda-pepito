@@ -33,9 +33,11 @@ def guardar_cliente():
             nombre, apellido, telefono,saldocuenta)
         return redirect('/clientes')
     except Exception:
-        return redirect ('/formulario_agregar_cliente')
+        return redirect ('/ex')
         
-
+@app.route('/ex')
+def re():
+    return redirect ('/guardar_clientes')
 
 
 @app.route('/clientes')
@@ -80,7 +82,7 @@ def actualizar_cliente():
             nombre, apellido, telefono, saldocuenta,codigocliente)
         return redirect('/clientes')
     except Exception:
-        return redirect ('/actualizar_cliente')
+        return redirect ('/formulario_editar_cliente')
 
 
 @app.route('/inicio_sesion', methods=['POST'])

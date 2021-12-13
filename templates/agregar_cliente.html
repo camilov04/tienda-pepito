@@ -36,20 +36,27 @@
                 <label class="telefonoC" for="telefono">Telefono</label>
                 <input required type="number" placeholder="Telefono"name="telefono"  id="telefono">
                 <br>
+                <span>En este campo deve indicar el valor que desea iniciar la cuenta del cliente campo *obligatorio indique 0 si el saldo de la cuenta inicia vacio</span>
                 <br>
                 <label class="saldo" for="Cuenta">Cuenta</label>
                 <input required type="number" placeholder="Saldo Cuenta"name="number"  id="number">
+                <br>
+                <span>Selecione el tipo de gestion<br>
+                    *producto fiado: para agregar un valor fiado <br>
+                    *Deposito: para iniciar la cuenta con saldo afavor del cliente <br>
+                    *Cuenta inicia en 0: para iniciar la cuenta del cliente en cero.
+                </span>
                 <br>
                 <div class="check">
                     
                     <div class="checkbox" >
                         <input type="radio" name="tipocuenta" id="fiar" value="1">
-                        <p>Fiar  producto</p>
+                        <p>producto fiado</p>
                     </div>
 
                     <div class="checkbox">
                         <input type="radio" name="tipocuenta" id="abonar" value="2">
-                        <p>Abonar</p>
+                        <p>Deposito </p>
                     </div>
 
                     <div class="checkbox">

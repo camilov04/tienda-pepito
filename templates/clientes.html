@@ -21,10 +21,19 @@
     <main>
         <section class="login">
     
+        
+
 <div class="titClientes">
     <h3 >Clientes</h3>
   </div>
   <br>
+  <div>
+    <span>
+       1. Los valores positivos en la  cuenta indica el saldo pendiente de un cliente.<br>
+       2. Los valores negativos en la cuenta indica saldo a favor del cliente.
+    </span>       
+   </div>
+   <br>
   <div>
     <a href="{{url_for('busqueda')}} ">
         <button  class="agg" style="text-decoration: none;"> Buscar Cliente</button>
@@ -35,7 +44,7 @@
   </div>       
 
 <br>
-
+            
             <div class="container">
             <table class="table">
                 <thead class="thead-dark">

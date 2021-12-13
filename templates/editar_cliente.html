@@ -35,25 +35,35 @@
                 <label class="telefonoC" for="telefono">Telefono</label>
                 <input value="{{cliente[3]}}"required type="number" class="input" placeholder="Telefono" name="telefono" id="telefono">
                 <br>
+
+                <span>En este campo deve indicar el valor que desea gestionar en la cuenta campo *obligatorio indique 0 si no desea gestionar el saldo de la cuenta</span>
+
                 <br>
                 <label class="saldo" for="Cuenta">Cuenta</label>
                 <input required type="number" placeholder="Saldo Cuenta"name="number"  id="number">
                 <br>
+
+                <span>Selecione el tipo de gestion<br>
+                *Fiar de nuevo: para agregar un valor fiado <br>
+                *Abonar: para agregar pagos de la deuda o abonos a la cuenta. <br>
+                *Producto retirado: para restar el valor de un producto a la cuenta cuando hay dinero a favor del cliente.
+                </span>
+
                 <br>
                 <div class="check">
                     
                     <div class="checkbox" >
-                        <input type="radio" id="tipocuenta" name="tipocuenta" value="1">
+                        <input type="radio" required id="tipocuenta" name="tipocuenta" value="1">
                         <p>Fiar de nuevo</p>
                     </div>
 
                     <div class="checkbox">
-                        <input type="radio" id="tipocuenta" name="tipocuenta" value="2">
+                        <input type="radio" required id="tipocuenta" name="tipocuenta" value="2">
                         <p>Abonar</p>
                     </div>
 
                     <div class="checkbox">
-                        <input type="radio" id="tipocuenta" name="tipocuenta" value="3">
+                        <input type="radio" required id="tipocuenta" name="tipocuenta" value="3">
                         <p>Producto retirado</p>
                     </div>
                 </div>
